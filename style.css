@@ -215,7 +215,7 @@ button .fas {
 .attendance-tracker {
   max-width: 700px;
   width: 90%;
-  margin: 0 auto 40px;
+  margin: 0 auto 25px;
   padding: 0 20px;
   text-align: center;
 }
@@ -243,9 +243,9 @@ button .fas {
 .progress-container {
   width: 100%;
   max-width: 500px;
-  height: 16px;
+  height: 28px;
   background-color: #e0e0e0;
-  border-radius: 10px;
+  border-radius: 16px;
   overflow: hidden;
   margin: 8px auto;
   position: relative;
@@ -255,7 +255,7 @@ button .fas {
   width: 0%;
   height: 100%;
   display: flex;
-  border-radius: 10px;
+  border-radius: 16px;
   transition: width 0.6s ease;
 }
 
