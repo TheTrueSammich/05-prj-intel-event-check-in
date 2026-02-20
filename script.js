@@ -41,6 +41,32 @@ const teamAttendees = {
   power: [],
 };
 
+function getTeamDisplayName(teamKey) {
+  if (teamKey === "water") {
+    return "Team Water Wise";
+  }
+
+  if (teamKey === "zero") {
+    return "Team Net Zero";
+  }
+
+  return "Team Renewables";
+}
+
+function getWinningTeams() {
+  let highestCount = 0;
+
+  teamKeys.forEach(function (team) {
+    if (teamCounts[team] > highestCount) {
+      highestCount = teamCounts[team];
+    }
+  });
+
+  return teamKeys.filter(function (team) {
+    return teamCounts[team] === highestCount;
+  });
+}
+
 function renderTeamAttendees(listElement, attendees) {
   listElement.innerHTML = "";
 
@@ -135,8 +161,16 @@ function celebrateGoalReached() {
   document.body.classList.add("celebrate");
   progressContainer.classList.add("celebrate");
 
-  greeting.textContent =
-    "🎉 Goal reached! 50 attendees checked in! Great job, teams! 🎉";
+  const winningTeams = getWinningTeams();
+  const winningTeamNames = winningTeams.map(function (team) {
+    return getTeamDisplayName(team);
+  });
+  const winnerMessage =
+    winningTeamNames.length === 1
+      ? `Winning team: ${winningTeamNames[0]}`
+      : `Winning teams: ${winningTeamNames.join(" and ")}`;
+
+  greeting.textContent = `🎉 Goal reached! 50 attendees checked in! ${winnerMessage}! 🎉`;
   greeting.classList.add("celebration-message");
   greeting.style.display = "block";
 

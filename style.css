@@ -13,14 +13,50 @@ body {
   min-height: 100vh;
 }
 
+.skip-link {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #ffffff;
+  color: #111827;
+  border: 2px solid #111827;
+  border-radius: 8px;
+  padding: 8px 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transform: translateY(-200%);
+  transition: transform 0.2s ease;
+  z-index: 10;
+}
+
+.skip-link:focus {
+  transform: translateY(0%);
+}
+
 /* Add form label styling */
-.form-label {
+.form-label,
+.form-title {
   display: block;
   text-align: left;
   margin-bottom: 15px;
   color: #475569;
   padding-left: 5px;
   font-weight: 500;
+}
+
+.form-title {
+  font-size: 18px;
+  text-align: center;
+  padding-left: 0;
+}
+
+.input-label {
+  display: block;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 6px;
 }
 
 /* Hero Section */
@@ -102,6 +138,7 @@ body {
   display: flex;
   gap: 15px;
   width: 100%;
+  align-items: flex-end;
 }
 
 /* Form elements */
@@ -171,7 +208,7 @@ button .fas {
   gap: 6px;
   margin-bottom: 15px;
   font-size: 17px;
-  color: #64748b;
+  color: #334155;
 }
 
 /* Attendance tracker styling */
@@ -184,21 +221,21 @@ button .fas {
 }
 
 #attendeeCount {
-  color: #0071c5;
+  color: #005a9e;
   font-size: 24px;
   font-weight: 700;
   margin: 0 2px;
 }
 
 .attendance-header i {
-  color: #0071c5;
+  color: #005a9e;
   font-size: 20px;
   margin-right: 4px;
 }
 
 /* Max attendees text */
 .attendance-header span:last-child {
-  color: #64748b;
+  color: #334155;
   font-size: 17px;
 }
 
@@ -312,6 +349,13 @@ body.celebrate {
   min-width: 0;
 }
 
+.input-field {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
 select {
   padding: 16px;
   border: 2px solid rgba(0, 0, 0, 0.08);
@@ -421,6 +465,15 @@ select {
 
 .attendee-dropdown[open] summary::after {
   content: "▲";
+}
+
+input:focus-visible,
+select:focus-visible,
+button:focus-visible,
+.attendee-dropdown summary:focus-visible,
+.footer-link:focus-visible {
+  outline: 3px solid #111827;
+  outline-offset: 2px;
 }
 
 .attendee-list {
