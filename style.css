@@ -304,6 +304,24 @@ button .fas {
   border: 2px solid #fed7aa;
 }
 
+.celebration-message.water {
+  background-color: #e0f2fe;
+  color: #003c71;
+  border-color: #7dd3fc;
+}
+
+.celebration-message.zero {
+  background-color: #dcfce7;
+  color: #14532d;
+  border-color: #86efac;
+}
+
+.celebration-message.power {
+  background-color: #ffedd5;
+  color: #9a3412;
+  border-color: #fdba74;
+}
+
 body.celebrate {
   animation: celebration-flash 0.5s ease 5;
 }

@@ -164,6 +164,11 @@ function celebrateGoalReached() {
 
   greeting.textContent = `🎉 Goal reached! ${count} attendees checked in! ${winnerMessage}! 🎉`;
   greeting.classList.add("celebration-message");
+  greeting.classList.remove("water", "zero", "power");
+
+  if (winningTeams.length === 1) {
+    greeting.classList.add(winningTeams[0]);
+  }
   greeting.style.display = "block";
 
   if (isGoalCelebrated) {
@@ -212,7 +217,7 @@ form.addEventListener("submit", function (event) {
     celebrateGoalReached();
   }
 
-  const message = `Welcome, 🎉${name}🎉! You have checked in with the ${teamName} team.`;
+  const message = `Welcome, 🎉${name}🎉! You have checked in to ${teamName}.`;
   alert(message);
 
   //reset form
