@@ -153,14 +153,6 @@ function loadAttendanceData() {
 }
 
 function celebrateGoalReached() {
-  if (isGoalCelebrated) {
-    return;
-  }
-
-  isGoalCelebrated = true;
-  document.body.classList.add("celebrate");
-  progressContainer.classList.add("celebrate");
-
   const winningTeams = getWinningTeams();
   const winningTeamNames = winningTeams.map(function (team) {
     return getTeamDisplayName(team);
@@ -170,9 +162,17 @@ function celebrateGoalReached() {
       ? `Winning team: ${winningTeamNames[0]}`
       : `Winning teams: ${winningTeamNames.join(" and ")}`;
 
-  greeting.textContent = `🎉 Goal reached! 50 attendees checked in! ${winnerMessage}! 🎉`;
+  greeting.textContent = `🎉 Goal reached! ${count} attendees checked in! ${winnerMessage}! 🎉`;
   greeting.classList.add("celebration-message");
   greeting.style.display = "block";
+
+  if (isGoalCelebrated) {
+    return;
+  }
+
+  isGoalCelebrated = true;
+  document.body.classList.add("celebrate");
+  progressContainer.classList.add("celebrate");
 
   setTimeout(function () {
     document.body.classList.remove("celebrate");
@@ -182,6 +182,10 @@ function celebrateGoalReached() {
 
 loadAttendanceData();
 updateAttendanceUI();
+
+if (count >= maxCount) {
+  celebrateGoalReached();
+}
 
 //handle form submission
 form.addEventListener("submit", function (event) {
@@ -204,7 +208,7 @@ form.addEventListener("submit", function (event) {
   updateAttendanceUI();
   saveAttendanceData();
 
-  if (count === maxCount) {
+  if (count >= maxCount) {
     celebrateGoalReached();
   }
 
