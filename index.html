@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -31,7 +31,11 @@
         Attendance: <span id="attendeeCount">0</span>/50
       </div>
       <div class="progress-container">
-        <div id="progressBar" class="progress-bar"></div>
+        <div id="progressBar" class="progress-bar">
+          <div id="waterSegment" class="progress-segment water"></div>
+          <div id="zeroSegment" class="progress-segment zero"></div>
+          <div id="powerSegment" class="progress-segment power"></div>
+        </div>
       </div>
     </div>
     <div class="container">
