@@ -76,7 +76,8 @@ function updateAttendanceUI() {
       return;
     }
 
-    teamConfig[team].segment.style.width = `${(teamCounts[team] / count) * 100}%`;
+    teamConfig[team].segment.style.width =
+      `${(teamCounts[team] / count) * 100}%`;
   });
 
   console.log(`Progress: ${percentage}`);

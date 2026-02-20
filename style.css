@@ -373,10 +373,60 @@ select {
   font-weight: 700;
 }
 
+.attendee-dropdown {
+  margin-top: 10px;
+  text-align: left;
+}
+
+.attendee-dropdown summary {
+  list-style: none;
+  background-color: #ffffff;
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+  cursor: pointer;
+}
+
+.attendee-dropdown.water summary {
+  background-color: #d9eef9;
+  border-color: #a8d4ea;
+  color: #0c4a6e;
+}
+
+.attendee-dropdown.zero summary {
+  background-color: #dcfce7;
+  border-color: #a7f3d0;
+  color: #14532d;
+}
+
+.attendee-dropdown.power summary {
+  background-color: #ffedd5;
+  border-color: #fdba74;
+  color: #7c2d12;
+}
+
+.attendee-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.attendee-dropdown summary::after {
+  content: "▼";
+  float: right;
+  font-size: 12px;
+  color: #475569;
+}
+
+.attendee-dropdown[open] summary::after {
+  content: "▲";
+}
+
 .attendee-list {
   list-style: none;
   text-align: left;
-  margin-top: 10px;
+  margin-top: 8px;
   max-height: 150px;
   overflow-y: auto;
   border-radius: 10px;
